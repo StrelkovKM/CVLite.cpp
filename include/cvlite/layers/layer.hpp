@@ -16,10 +16,13 @@ public:
 
     [[nodiscard]] virtual core::Tensor forward(core::Tensor input) = 0;
 
+    [[nodiscard]] virtual core::Tensor backward(core::Tensor grad_output) = 0;
+
     Layer(const Layer&) = delete;
     Layer& operator=(const Layer&) = delete;
 
 protected:
+    core::Tensor last_input_;
     Layer() = default;
     Layer(Layer&&) noexcept = default;
     Layer& operator=(Layer&&) noexcept = default;

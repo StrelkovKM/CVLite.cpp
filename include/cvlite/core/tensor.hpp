@@ -29,6 +29,8 @@ public:
     [[nodiscard]] std::span<float> data() noexcept { return data_; }
     [[nodiscard]] std::span<const float> data() const noexcept { return data_; }
 
+    [[nodiscard]] Tensor clone() const;
+
     [[nodiscard]] const Shape& shape() const noexcept { return shape_; }
 
 private:

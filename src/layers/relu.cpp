@@ -6,9 +6,9 @@ namespace cvlite::layers {
 
 core::Tensor ReLU::forward(core::Tensor input)
 {
-    auto data_view = input.data();
+    last_input_ = input.clone();
 
-    for (float& value : data_view) {
+    for (float& value : input.data()) {
         value = std::max(0.0f, value);
     }
 
